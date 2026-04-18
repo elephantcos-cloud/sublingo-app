@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- Background circle -->
+    <path android:fillColor="#7857FF"
+        android:pathData="M54,18C34.12,18 18,34.12 18,54C18,73.88 34.12,90 54,90C73.88,90 90,73.88 90,54C90,34.12 73.88,18 54,18Z"/>
+    <!-- S letter stylized -->
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M42,44H62V48H46V52H58C60.21,52 62,53.79 62,56V64C62,66.21 60.21,68 58,68H38V64H54V60H42C39.79,60 38,58.21 38,56V48C38,45.79 39.79,44 42,44Z"/>
+</vector>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary">
+
+    <!-- Toolbar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="16dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@drawable/bg_icon_button"
+            android:padding="10dp"
+            android:tint="@color/text_primary"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="File Translate"
+            android:textColor="@color/text_primary"
+            android:textSize="17sp"
+            android:fontFamily="sans-serif-medium" />
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Upload Zone -->
+            <FrameLayout
+                android:id="@+id/upload_zone"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@drawable/bg_upload_zone"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_upload_icon"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:src="@drawable/ic_upload_file"
+                        android:tint="@color/color_secondary" />
+
+                    <TextView
+                        android:id="@+id/tv_upload_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/upload_hint"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/tv_file_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_pick_file"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Browse Files"
+                        android:textSize="13sp"
+                        app:strokeColor="@color/color_secondary"
+                        app:strokeWidth="1dp"
+                        style="@style/Widget.SubLingo.Button.Outlined"
+                        xmlns:app="http://schemas.android.com/apk/res-auto" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Language Selector Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                style="@style/Widget.SubLingo.Card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/select_language"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:letterSpacing="0.1"
+                        android:fontFamily="sans-serif-medium"
+                        android:paddingBottom="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FROM"
+                                android:textColor="@color/color_secondary"
+                                android:textSize="9sp"
+                                android:letterSpacing="0.2"
+                                android:fontFamily="sans-serif-medium"
+                                android:paddingBottom="6dp" />
+
+                            <Spinner
+                                android:id="@+id/spinner_source"
+                                android:layout_width="match_parent"
+                                android:layout_height="44dp"
+                                android:background="@drawable/bg_spinner"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="8dp" />
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:id="@+id/btn_swap"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/ic_swap_horiz"
+                            android:background="@drawable/bg_swap_button"
+                            android:padding="8dp"
+                            android:tint="@color/color_primary"
+                            android:contentDescription="Swap languages" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TO"
+                                android:textColor="@color/color_primary"
+                                android:textSize="9sp"
+                                android:letterSpacing="0.2"
+                                android:fontFamily="sans-serif-medium"
+                                android:paddingBottom="6dp" />
+
+                            <Spinner
+                                android:id="@+id/spinner_target"
+                                android:layout_width="match_parent"
+                                android:layout_height="44dp"
+                                android:background="@drawable/bg_spinner"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="8dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Translate Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_translate"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="28dp"
+                android:text="@string/start_translation"
+                android:textSize="15sp"
+                android:enabled="false"
+                style="@style/Widget.SubLingo.Button" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

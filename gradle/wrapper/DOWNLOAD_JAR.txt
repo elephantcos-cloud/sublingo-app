@@ -1,0 +1,6 @@
+If gradle-wrapper.jar is missing, run:
+  gradle wrapper --gradle-version=8.6
+Or download manually:
+  curl -L https://services.gradle.org/distributions/gradle-8.6-bin.zip -o gradle-8.6-bin.zip
+  unzip gradle-8.6-bin.zip
+  gradle-8.6/bin/gradle wrapper

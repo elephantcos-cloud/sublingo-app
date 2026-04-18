@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Deep Space Theme -->
+    <color name="bg_primary">#06070F</color>
+    <color name="bg_surface">#0D0E20</color>
+    <color name="bg_card">#131428</color>
+    <color name="bg_card_elevated">#191A32</color>
+
+    <!-- Accent Colors -->
+    <color name="color_primary">#7857FF</color>
+    <color name="color_primary_dark">#5A3ECC</color>
+    <color name="color_secondary">#00D4FF</color>
+    <color name="color_accent_pink">#FF4894</color>
+    <color name="color_success">#00E676</color>
+    <color name="color_warning">#FFAB00</color>
+    <color name="color_error">#FF4444</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8888AA</color>
+    <color name="text_hint">#44445A</color>
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- Stroke / Divider -->
+    <color name="stroke_default">#1E1E3A</color>
+    <color name="stroke_active">#7857FF</color>
+
+    <!-- Phase Colors -->
+    <color name="phase_upload">#00D4FF</color>
+    <color name="phase_translate">#7857FF</color>
+    <color name="phase_save">#00E676</color>
+
+    <!-- System / Material -->
+    <color name="colorPrimary">#7857FF</color>
+    <color name="colorPrimaryDark">#06070F</color>
+    <color name="colorAccent">#00D4FF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
