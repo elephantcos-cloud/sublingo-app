@@ -9,6 +9,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.sublingo.app.R
 import com.sublingo.app.databinding.FragmentResultBinding
 import com.sublingo.app.translator.MLKitTranslator
 import java.io.File
@@ -19,7 +20,11 @@ class ResultFragment : Fragment() {
     private val binding get() = _binding!!
     private val args: ResultFragmentArgs by navArgs()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentResultBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -28,37 +33,34 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val outputFile = File(args.outputPath)
-        val langName = MLKitTranslator.LANGUAGES.find { it.first == args.targetLang }?.second ?: args.targetLang
+        val langName = MLKitTranslator.LANGUAGES
+            .find { it.first == args.targetLang }?.second ?: args.targetLang
 
-        binding.tvLineCount.text = "${args.lineCount} lines translated"
-        binding.tvLangInfo.text = "Language: $langName"
+        binding.tvLineCount.text = args.lineCount.toString() + " lines translated"
+        binding.tvLangInfo.text = "Language: " + langName
         binding.tvFileName.text = outputFile.name
 
-        // Preview first few lines
         if (outputFile.exists()) {
-            val preview = outputFile.readLines().take(10).joinToString("
-")
+            val lines = outputFile.readLines().take(10)
+            val preview = lines.joinToString(separator = System.lineSeparator())
             binding.tvPreview.text = preview
         }
 
         binding.btnDone.setOnClickListener {
-            findNavController().navigate(
-                com.sublingo.app.R.id.action_result_to_home
-            )
+            findNavController().navigate(R.id.action_result_to_home)
         }
 
-        binding.btnShare.setOnClickListener {
-            shareFile(outputFile)
-        }
-
-        binding.btnOpen.setOnClickListener {
-            openFile(outputFile)
-        }
+        binding.btnShare.setOnClickListener { shareFile(outputFile) }
+        binding.btnOpen.setOnClickListener { openFile(outputFile) }
     }
 
     private fun shareFile(file: File) {
         if (!file.exists()) return
-        val uri = FileProvider.getUriForFile(requireContext(), "${requireContext().packageName}.fileprovider", file)
+        val uri = FileProvider.getUriForFile(
+            requireContext(),
+            requireContext().packageName + ".fileprovider",
+            file
+        )
         val intent = Intent(Intent.ACTION_SEND).apply {
             type = "text/plain"
             putExtra(Intent.EXTRA_STREAM, uri)
@@ -69,7 +71,11 @@ class ResultFragment : Fragment() {
 
     private fun openFile(file: File) {
         if (!file.exists()) return
-        val uri = FileProvider.getUriForFile(requireContext(), "${requireContext().packageName}.fileprovider", file)
+        val uri = FileProvider.getUriForFile(
+            requireContext(),
+            requireContext().packageName + ".fileprovider",
+            file
+        )
         val intent = Intent(Intent.ACTION_VIEW).apply {
             setDataAndType(uri, "text/plain")
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
