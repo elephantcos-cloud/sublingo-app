@@ -45,11 +45,4 @@
         <item name="android:paddingBottom">14dp</item>
     </style>
 
-    <style name="Widget.SubLingo.BottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
-        <item name="android:background">@color/bg_surface</item>
-        <item name="itemIconTint">@color/bottom_nav_color</item>
-        <item name="itemTextColor">@color/bottom_nav_color</item>
-        <item name="elevation">0dp</item>
-    </style>
-
 </resources>
